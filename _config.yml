@@ -1,9 +1,9 @@
 # main text of home
 name: Stefan Taubert
-bio: Hi! My name is Stefan and I'm currently studying applied computer science at the Chemnitz University of Technology. My interests are WinForms Development and Machine learning especially NLP.
+bio: Hi! My name is Stefan and I'm currently studying applied computer science at the Chemnitz University of Technology. My interests are WinForms development and machine learning, especially NLP.
 
 # twitter summary info
-description: Hi! My name is Stefan and I'm currently studying applied computer science at the Chemnitz University of Technology. My interests are WinForms Development and Machine learning especially NLP.
+#description: Hi! My name is Stefan and I'm currently studying applied computer science at the Chemnitz University of Technology. My interests are WinForms Development and Machine learning especially NLP.
 
 # if it's an external image, update below for true
 # better with square images
@@ -47,9 +47,10 @@ github: stefantaubert
 # stackoverflow: 7044681/mystackoverflow
 # quora: userquora
 # reddit: username
-medium: medium
+#medium: medium
 # vimeo: myvimeo
 # lanyrd: mylanyrd
+xing: trnaei
 email: sttau@hrz.tu-chemnitz.de
 
 authors:
