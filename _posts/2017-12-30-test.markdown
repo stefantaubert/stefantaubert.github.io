@@ -1,0 +1,15 @@
+---
+title: "Markdown Common Elements"
+layout: post
+date: 2017-12-30 8:33headerImage: false
+tag:
+- blog
+star: true
+category: blog
+author: stefantaubert
+description: First blog post.
+---
+
+## Summary:
+Hello World!
+---
