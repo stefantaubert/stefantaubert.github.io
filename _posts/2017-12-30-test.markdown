@@ -1,7 +1,8 @@
 ---
-title: "Markdown Common Elements"
+title: "First post"
 layout: post
-date: 2017-12-30 8:33headerImage: false
+date: 2017-12-30 8:33
+headerImage: false
 tag:
 - blog
 star: true
