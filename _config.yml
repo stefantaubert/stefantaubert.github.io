@@ -18,7 +18,7 @@ resume-url: https://google.com/?q=my+resume
 
 url: http://stefantaubert.com
 # your url: http://USERNAME.github.io
-
+ 
 permalink: /:title/
 
 # To enable google analytics, supply your token below
