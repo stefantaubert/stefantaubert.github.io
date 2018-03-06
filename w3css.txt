@@ -1,0 +1,31 @@
+w3-container
+HTML container with 16px left and right padding
+
+w3-panel
+HTML container with 16px left and right padding and 16px top and bottom margin
+
+w3-content
+The w3-content class defines a container for fixed size centered content. Use the CSS max-width property to override the default width (980px).
+
+w3-row
+Container for one row of fluid responsive content
+
+w3-row-padding
+Row where all columns have a default padding
+
+w3-col
+Column container for any HTML content
+- 12 is default for s (less than 601px), m and l (larger than 992px)
+- "w3-col m6" is equal to "w3-col s12 m6 l6"
+
+w3-hide-small
+Hide content on small screens (less than 601px)
+-  w3-hide-medium
+-  w3-hide-large
+
+w3-image
+makes the image scale down if it has to, but never scale up to be larger than its original size
+- style="width:100%;" is always scaling
+
+w3-padding
+Padding 8px top and bottom, and 16px left and right.
