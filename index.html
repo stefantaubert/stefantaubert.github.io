@@ -14,6 +14,8 @@
         <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 
         <style>
+            html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}header,nav,section{display:block}a{background-color:transparent;-webkit-text-decoration-skip:objects}img{border-style:none}button{font:inherit;margin:0}button{overflow:visible}button{text-transform:none}button{-webkit-appearance:button}button::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring{outline:1px dotted ButtonText}::-webkit-input-placeholder{color:inherit;opacity:0.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html,body{font-family:Verdana,sans-serif;font-size:15px;line-height:1.5}html{overflow-x:hidden}h1{font-size:36px}h4{font-size:20px}h1,h4{font-family:"Segoe UI",Arial,sans-serif;font-weight:400;margin:10px 0}.w3-wide{letter-spacing:4px}img{vertical-align:middle}a{color:inherit}.w3-button{border:none;display:inline-block;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;background-color:inherit;text-align:center;white-space:nowrap}.w3-button{-webkit-touch-callout:none}.w3-display-container{position:relative}.w3-bar{width:100%;overflow:hidden}.w3-bar .w3-bar-item{padding:8px 16px;float:left;width:auto;border:none;display:block;outline:0}.w3-bar .w3-button{white-space:normal}.w3-bar-block .w3-bar-item{width:100%;display:block;padding:8px 16px;text-align:left;border:none;white-space:normal;float:none;outline:0}.w3-container:after,.w3-container:before,.w3-bar:before,.w3-bar:after{content:"";display:table;clear:both}.w3-content{max-width:980px;margin:auto}.w3-hide{display:none!important}@media (max-width:600px){.w3-hide-small{display:none!important}}@media (min-width:993px){.w3-hide-large{display:none!important}}@media (max-width:992px) and (min-width:601px){.w3-hide-medium{display:none!important}}.w3-top{position:fixed;width:100%;z-index:1}.w3-top{top:0}.w3-display-middle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%)}.w3-display-left{position:absolute;top:50%;left:0%;transform:translate(0%,-50%);-ms-transform:translate(-0%,-50%)}.w3-display-right{position:absolute;top:50%;right:0%;transform:translate(0%,-50%);-ms-transform:translate(0%,-50%)}.w3-circle{border-radius:50%}.w3-container{padding:0.01em 16px}.w3-card{box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)}.w3-opacity{opacity:0.60}.w3-small{font-size:12px!important}.w3-justify{text-align:justify!important}.w3-center{text-align:center!important}.w3-border-bottom{border-bottom:1px solid #ccc!important}.w3-margin-top{margin-top:16px!important}.w3-padding{padding:8px 16px!important}.w3-padding-16{padding-top:16px!important;padding-bottom:16px!important}.w3-right{float:right!important}.w3-white{color:#000!important;background-color:#fff!important}.w3-grey{color:#000!important;background-color:#9e9e9e!important}.w3-text-black{color:#000!important}.w3-border-light-grey{border-color:#f1f1f1!important}
+
             body {
                 margin: 0;
                 font-family: Arial, Helvetica, sans-serif;
@@ -190,92 +192,6 @@
             /*#endregion*/
 
         </style>
-        <script>
-            /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
-            (function(w){
-                "use strict";
-                /* exported loadCSS */
-                var loadCSS = function( href, before, media ){
-                    // Arguments explained:
-                    // `href` [REQUIRED] is the URL for your CSS file.
-                    // `before` [OPTIONAL] is the element the script should use as a reference for injecting our stylesheet <link> before
-                    // By default, loadCSS attempts to inject the link after the last stylesheet or script in the DOM. However, you might desire a more specific location in your document.
-                    // `media` [OPTIONAL] is the media type or query of the stylesheet. By default it will be 'all'
-                    var doc = w.document;
-                    var ss = doc.createElement( "link" );
-                    var ref;
-                    if( before ){
-                        ref = before;
-                    }
-                    else {
-                        var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
-                        ref = refs[ refs.length - 1];
-                    }
-
-                    var sheets = doc.styleSheets;
-                    ss.rel = "stylesheet";
-                    ss.href = href;
-                    // temporarily set media to something inapplicable to ensure it'll fetch without blocking render
-                    ss.media = "only x";
-
-                    // wait until body is defined before injecting link. This ensures a non-blocking load in IE11.
-                    function ready( cb ){
-                        if( doc.body ){
-                            return cb();
-                        }
-                        setTimeout(function(){
-                            ready( cb );
-                        });
-                    }
-                    // Inject link
-                    // Note: the ternary preserves the existing behavior of "before" argument, but we could choose to change the argument to "after" in a later release and standardize on ref.nextSibling for all refs
-                    // Note: `insertBefore` is used instead of `appendChild`, for safety re: http://www.paulirish.com/2011/surefire-dom-element-insertion/
-                    ready( function(){
-                        ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
-                    });
-                    // A method (exposed on return object for external use) that mimics onload by polling document.styleSheets until it includes the new sheet.
-                    var onloadcssdefined = function( cb ){
-                        var resolvedHref = ss.href;
-                        var i = sheets.length;
-                        while( i-- ){
-                            if( sheets[ i ].href === resolvedHref ){
-                                return cb();
-                            }
-                        }
-                        setTimeout(function() {
-                            onloadcssdefined( cb );
-                        });
-                    };
-
-                    function loadCB(){
-                        if( ss.addEventListener ){
-                            ss.removeEventListener( "load", loadCB );
-                        }
-                        ss.media = media || "all";
-                    }
-
-                    // once loaded, set link's media back to `all` so that the stylesheet applies once it loads
-                    if( ss.addEventListener ){
-                        ss.addEventListener( "load", loadCB);
-                    }
-                    ss.onloadcssdefined = onloadcssdefined;
-                    onloadcssdefined( loadCB );
-                    return ss;
-                };
-                // commonjs
-                if( typeof exports !== "undefined" ){
-                    exports.loadCSS = loadCSS;
-                }
-                else {
-                    w.loadCSS = loadCSS;
-                }
-            }( typeof global !== "undefined" ? global : this ));
-        </script>
-        <script id="loadcss">
-            // load a CSS file just before the script element containing this code
-            loadCSS("css/w3.css", document.getElementById("loadcss") );
-            loadCSS("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", document.getElementById("loadcss") );
-        </script>
 
     </head>
 
@@ -675,6 +591,92 @@
                 document.body.scrollTop = 0;
                 document.documentElement.scrollTop = 0;
             }
+        </script>
+        <script type="text/javascript">
+            /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+            (function(w){
+                "use strict";
+                /* exported loadCSS */
+                var loadCSS = function( href, before, media ){
+                    // Arguments explained:
+                    // `href` [REQUIRED] is the URL for your CSS file.
+                    // `before` [OPTIONAL] is the element the script should use as a reference for injecting our stylesheet <link> before
+                    // By default, loadCSS attempts to inject the link after the last stylesheet or script in the DOM. However, you might desire a more specific location in your document.
+                    // `media` [OPTIONAL] is the media type or query of the stylesheet. By default it will be 'all'
+                    var doc = w.document;
+                    var ss = doc.createElement( "link" );
+                    var ref;
+                    if( before ){
+                        ref = before;
+                    }
+                    else {
+                        var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+                        ref = refs[ refs.length - 1];
+                    }
+
+                    var sheets = doc.styleSheets;
+                    ss.rel = "stylesheet";
+                    ss.href = href;
+                    // temporarily set media to something inapplicable to ensure it'll fetch without blocking render
+                    ss.media = "only x";
+
+                    // wait until body is defined before injecting link. This ensures a non-blocking load in IE11.
+                    function ready( cb ){
+                        if( doc.body ){
+                            return cb();
+                        }
+                        setTimeout(function(){
+                            ready( cb );
+                        });
+                    }
+                    // Inject link
+                    // Note: the ternary preserves the existing behavior of "before" argument, but we could choose to change the argument to "after" in a later release and standardize on ref.nextSibling for all refs
+                    // Note: `insertBefore` is used instead of `appendChild`, for safety re: http://www.paulirish.com/2011/surefire-dom-element-insertion/
+                    ready( function(){
+                        ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+                    });
+                    // A method (exposed on return object for external use) that mimics onload by polling document.styleSheets until it includes the new sheet.
+                    var onloadcssdefined = function( cb ){
+                        var resolvedHref = ss.href;
+                        var i = sheets.length;
+                        while( i-- ){
+                            if( sheets[ i ].href === resolvedHref ){
+                                return cb();
+                            }
+                        }
+                        setTimeout(function() {
+                            onloadcssdefined( cb );
+                        });
+                    };
+
+                    function loadCB(){
+                        if( ss.addEventListener ){
+                            ss.removeEventListener( "load", loadCB );
+                        }
+                        ss.media = media || "all";
+                    }
+
+                    // once loaded, set link's media back to `all` so that the stylesheet applies once it loads
+                    if( ss.addEventListener ){
+                        ss.addEventListener( "load", loadCB);
+                    }
+                    ss.onloadcssdefined = onloadcssdefined;
+                    onloadcssdefined( loadCB );
+                    return ss;
+                };
+                // commonjs
+                if( typeof exports !== "undefined" ){
+                    exports.loadCSS = loadCSS;
+                }
+                else {
+                    w.loadCSS = loadCSS;
+                }
+            }( typeof global !== "undefined" ? global : this ));
+        </script>
+        <script id="loadcss">
+            // load a CSS file just before the script element containing this code
+            loadCSS("css/w3.css", document.getElementById("loadcss") );
+            loadCSS("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", document.getElementById("loadcss") );
         </script>
     </body>
 </html>
