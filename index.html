@@ -8,7 +8,6 @@
         <meta name="keywords" content="Stefan Taubert, Taubert, Password Manager" />
         <meta name="language" content="de" />
 
-        <link rel="stylesheet" type="text/css" href="css/w3.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -196,6 +195,23 @@
 
 
     <body>
+        <noscript id="deferred-styles">
+            <link rel="stylesheet" type="text/css" href="css/w3.css">
+        </noscript>
+        <script>
+            var loadDeferredStyles = function() {
+                var addStylesNode = document.getElementById("deferred-styles");
+                var replacement = document.createElement("div");
+                replacement.innerHTML = addStylesNode.textContent;
+                document.body.appendChild(replacement)
+                addStylesNode.parentElement.removeChild(addStylesNode);
+            };
+            var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+                window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+            if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+            else window.addEventListener('load', loadDeferredStyles);
+        </script>
+
         <nav class="w3-top">
             <div class="w3-bar w3-white w3-wide w3-padding w3-card">
                 <a href="#" class="w3-bar-item w3-button"><img src="img/stefan_logo.svg" height="23px;"></a>
