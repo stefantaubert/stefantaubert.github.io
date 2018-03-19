@@ -191,22 +191,10 @@
             /*#endregion*/
 
         </style>
-
-        <noscript id="deferred-styles">
-            <link rel="stylesheet" type="text/css" href="css/w3.css">
-        </noscript>
-        <script>
-            var loadDeferredStyles = function() {
-                var addStylesNode = document.getElementById("deferred-styles");
-                var replacement = document.createElement("div");
-                replacement.innerHTML = addStylesNode.textContent;
-                document.body.appendChild(replacement)
-                addStylesNode.parentElement.removeChild(addStylesNode);
-            };
-            var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
-                window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-            if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
-            else window.addEventListener('load', loadDeferredStyles);
+        <script src="js/loadCSS.js"></script>
+        <script id="loadcss">
+            // load a CSS file just before the script element containing this code
+            loadCSS( "css/w3.css", document.getElementById("loadcss") );
         </script>
 
     </head>
