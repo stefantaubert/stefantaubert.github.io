@@ -260,3 +260,6 @@ paket-files/
 __pycache__/
 *.pyc
 /img/profil2.jpg
+/img/profil.png
+/img/profil_alt.png
+/img/profil_opt_alt.png
