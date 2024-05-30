@@ -29,12 +29,12 @@ name = "twitter"
 url = "https://twitter.com/Stefan_Taubert"
 
 [languages]
-  [languages.en]
-    title = "Example Site"
-    weight = 1
-    contentDir = "content"
-    # languageDirection = 'rtl' for Right-To-Left languages
   [languages.de]
     title = "Beispielseite"
+    weight = 1
+    contentDir = "content/de"
+  [languages.en]
+    title = "Example Site"
     weight = 2
-    contentDir = "content-de"
+    contentDir = "content/en"
+    # languageDirection = 'rtl' for Right-To-Left languages

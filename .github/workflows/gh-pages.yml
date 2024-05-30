@@ -58,7 +58,7 @@ jobs:
       - name: Build with Hugo
         run: |
           hugo \
-            --buildDrafts --gc \
+            --buildDrafts --gc -D \
             --baseURL ${{ steps.pages.outputs.base_url }} \
             --destination ./public_html
       - name: Upload artifact
