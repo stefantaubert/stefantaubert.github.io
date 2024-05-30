@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "main.css",
-	"sourceRoot": "/home/mi/code/stefantaubert.github.io/quickstart",
+	"sourceRoot": "/home/mi/code/stefantaubert.github.io",
 	"sources": [
 		"stdin"
 	],
